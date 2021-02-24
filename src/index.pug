@@ -1,0 +1,24 @@
+html
+    include head.pug
+    style 
+        include style.css
+
+    body
+        button(onclick="toggleMenu()")#menu-button
+            span &#9776;
+            span &#215;
+
+        nav
+            .container
+                h3: a(href="#home") Home
+
+                h4 Learning Goals
+                h3: a(href="#edges-of-ux") Discovering the Edges of UX
+                h3: a(href="#methods") Developing my own methods
+
+        section#home
+            h1 Product Biography
+            h2 Bas de Bruin
+
+    script
+        include script.js

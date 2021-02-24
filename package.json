@@ -1,0 +1,24 @@
+{
+  "name": "uxd-product-biography",
+  "version": "1.0.0",
+  "description": "UXD Product Biography",
+  "main": "index.js",
+  "dependencies": {
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "pug src/index.pug --out _site/index.html -b src -w",
+    "build": "pug src/index.pug --out _site/index.html -b src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basdebruin/uxd-product-biography.git"
+  },
+  "author": "Bas de Bruin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basdebruin/uxd-product-biography/issues"
+  },
+  "homepage": "https://github.com/basdebruin/uxd-product-biography#readme"
+}
