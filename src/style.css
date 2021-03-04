@@ -106,3 +106,16 @@ section, .container {
 section:not(#home) {
     display: none;
 }
+
+
+@keyframes rainbow {
+    0%   { color: #DE4F4F; }
+    20%  { color: #E0C431; }
+    40%  { color: #65CF6B; }
+    60%  { color: #64C2DE; }
+    80%  { color: #9486FF; }
+    100% { color: #DE4F4F; }
+}
+button:hover, a:hover {
+    animation: rainbow 4s infinite;
+}
