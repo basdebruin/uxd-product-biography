@@ -8,8 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "pug src/index.pug --out _site/index.html -b src -w",
-    "build": "pug src/index.pug --out _site/index.html -b src"
+    "start": "pug src/index.pug --out _site/ -b src -w",
+    "build": "pug src/index.pug --out _site/ -b src"
   },
   "repository": {
     "type": "git",
