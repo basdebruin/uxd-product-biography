@@ -3,6 +3,8 @@ html(lang="en")
     include head.pug
     style 
         include style.css
+    script
+        include script.js
 
     body
         button(onclick="toggleMenu()")#menu-button
@@ -11,15 +13,30 @@ html(lang="en")
 
         nav
             .container
-                h3: a(href="#home") Home
+                h2: a(href="#home") Home
 
-                h4 Learning Goals
-                h3: a(href="#edges-of-ux") Discovering the Edges of UX
-                h3: a(href="#methods") Developing my own methods
+                h2.label Learning Goals
+                h2: a(href="#edges-of-ux") Discovering the Edges of UX
+                h2: a(href="#methods") Developing my own methods
+                h2: a(href="#sustainability") Sustainability in the design proces
 
         section#home
             h1 Product Biography
             h2 Bas de Bruin
 
-    script
-        include script.js
+            hr
+
+            h2 Intro
+
+        section#edges-of-UX
+            h1 Discovering the Edges of UX
+
+        section#methods
+            h1 Developing my own methods
+
+        section#sustainability
+            h1 Sustainability in the design proces
+            h2 Intro
+            p.
+                I did this thing
+            h2 Building the website
