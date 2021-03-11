@@ -6,7 +6,6 @@
   "dependencies": {
     "pug-cli": "^1.0.0-alpha6"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "pug src/index.pug --out docs/ -b src -w",
     "build": "pug src/index.pug --out docs/ -b src"
