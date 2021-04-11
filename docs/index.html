@@ -21,6 +21,7 @@ html, body {
     color: var(--fg);
     background: var(--bg);
 }
+body * {box-sizing: border-box }
 @media (prefers-color-scheme: dark) {
     :root {
         --fg: #eee;
@@ -43,7 +44,7 @@ h3 {
     margin: 0;
     margin-bottom: .5rem;
 }
-p {
+p, p * {
     line-height: 1.6rem;
     opacity: .8;
     letter-spacing: .2px;
@@ -153,7 +154,7 @@ button:hover, a:hover {
     width: 100%;
     font-size: 1rem;
     text-align: left;
-    background: rgba(127, 127, 127, .2);
+    background: rgba(127, 127, 127, .1);
     border-radius: .5em;
 
     margin: 1rem 0;
@@ -166,7 +167,35 @@ button:hover, a:hover {
     background: rgba(127, 127, 127, .2);
     border-radius: 1rem;
 }
-.method-description { display: none }</style><script>// scripts for uxd-product-biography
+.method-description { display: none }
+/* Method Card */
+#method-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none; /* flex */
+    justify-content: center; align-items: center;
+    width: 100vw; height: 100vh;
+    background: rgba(127, 127, 127, .75);
+    z-index: 999;
+}
+.method-card {
+    position: relative;
+    background: var(--bg);
+    max-width: 50rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+.method-close-button {
+    position: absolute;
+    background-color: rgba(127, 127, 127, .5);
+    border-radius: 2rem;
+    line-height: 0;
+    padding: 1rem .5rem 1.3rem .6rem;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+}</style><script>// scripts for uxd-product-biography
 
 // basic query functions
 function q(s)      { return document.querySelector(s) }
@@ -189,7 +218,6 @@ function toggleMenu(override = undefined) {
 */
 function makeSectionVisible(section) {
     if (typeof section == undefined || section == null) return;
-    console.log(section);
     qAll('section').forEach(function(e){ e.style.display = 'none' });
     section.style.display = 'block';
     loadPageImages(section);
@@ -220,9 +248,34 @@ function hashHandler() {
     toggleMenu(false);
 }
 window.addEventListener('hashchange', hashHandler);
-document.addEventListener('DOMContentLoaded', hashHandler);</script><body><button onclick="toggleMenu()" id="menu-button"><span>&#9776;</span><span>&#215;</span></button><nav><div class="container"><h2><a href="#home">Home</a></h2><h2 class="label">Learning Goals</h2><h2><a href="#writing">Writing about UX and old projects</a></h2><h2><a href="#methods">Developing my own methods</a></h2><h2><a href="#sustainability">Sustainability in the design proces</a></h2></div></nav><section id="home"><h1>Product Biography</h1><h2>Bas de Bruin</h2><hr><h2>Intro</h2></section><section id="writing"><h1>Writing about UX and old projects</h1><hr></section><section id="methods"><h1>Developing my own methods</h1><p>There are a lot of methods in the UX field, so many that you can never use all of them on a single project. <br>
-For this learning goal I've set out to gather the methods that I think will be most useful to the type of project I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.</p><p>Click on any of the methods to read a description about it.
-</p><hr><h2>Research Phase</h2><button class="method" onclick="openMethod(this)"><h3>User Journey</h3><div class="method-point">Gives you an overview of the entire user experience.</div><p class="method-description">
+document.addEventListener('DOMContentLoaded', hashHandler);
+
+
+/**
+ * Generate and Open Method Card Pop-Up
+ * @param {String} title 
+ * @param {HTMLElement} buttonElem
+ */
+function openMethod(title, buttonElem) {
+    const area = qId('method-popup');
+    const description = buttonElem.getAttribute('data-description');
+    area.innerHTML = `
+        <div class="method-card">
+            <button 
+                class="method-close-button"
+                onclick="closeMethod()"
+            >&#215</button>
+            <h2>${title}</h2>
+            <p>${description}</p>
+        </div>
+    `;
+    area.style.display = 'flex';
+}
+function closeMethod() {
+    qId('method-popup').style.display = 'none';
+}</script><body><button onclick="toggleMenu()" id="menu-button"><span>&#9776;</span><span>&#215;</span></button><nav><div class="container"><h2><a href="#home">Home</a></h2><h2 class="label">Learning Goals</h2><h2><a href="#writing">Writing about UX and old projects</a></h2><h2><a href="#methods">Developing my own methods</a></h2><h2><a href="#sustainability">Sustainability in the design proces</a></h2></div></nav><section id="home"><h1>Product Biography</h1><h2>Bas de Bruin</h2><hr><h2>Intro</h2></section><section id="writing"><h1>Writing about UX and old projects</h1><hr></section><section id="methods"><h1>Developing my own methods</h1><p>There are a lot of methods in the UX field, so many that you can never use all of them on a single project. <br>
+For this learning goal I've set out to gather the methods that I think will be most useful to the type of projects I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.</p><p>Click on any of the methods to read a description about it.
+</p><hr><h2>Research Phase</h2><button class="method" onclick="openMethod(&quot;User Journey&quot;, this)" data-description="
                 A user journey discribes the experience the user has with your product. &lt;br&gt;
                 Common sections that can be found in user journeys are: &lt;br&gt;
                 &lt;ul&gt;
@@ -232,4 +285,4 @@ For this learning goal I've set out to gather the methods that I think will be m
                     &lt;li&gt;User Thoughts&lt;/li&gt;
                     &lt;li&gt;Oppertunities&lt;/li&gt;
                 &lt;/ul&gt;
-            </p></button><button class="method" onclick="openMethod(this)"><h3>Persona's</h3><div class="method-point">Gives you another perspective through which to look at your product</div><div class="method-point">Allows a team to easily talk about the target audience</div><p class="method-description"></p></button><button class="method" onclick="openMethod(this)"><h3>Moodboad / Personality Profile</h3><div class="method-point">Capture the personality of the product</div><div class="method-point">Includes visual style and copy</div><p class="method-description"></p></button><h2>Design Phase</h2><h2>Prototyping Phase</h2><h2>Iteration &amp; Testing Phase</h2></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>
+            "><h3>User Journey</h3><div class="method-point">Gives you an overview of the entire user experience.</div></button><button class="method" onclick="openMethod(&quot;Persona's&quot;, this)" data-description=""><h3>Persona's</h3><div class="method-point">Gives you another perspective through which to look at your product</div><div class="method-point">Allows a team to easily talk about the target audience</div></button><button class="method" onclick="openMethod(&quot;Moodboad / Personality Profile&quot;, this)" data-description=""><h3>Moodboad / Personality Profile</h3><div class="method-point">Capture the personality of the product</div><div class="method-point">Includes visual style and copy</div></button><h2>Design Phase</h2><h2>Prototyping Phase</h2><h2>Iteration &amp; Testing Phase</h2><div id="method-popup"></div></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>

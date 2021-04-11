@@ -21,7 +21,6 @@ function toggleMenu(override = undefined) {
 */
 function makeSectionVisible(section) {
     if (typeof section == undefined || section == null) return;
-    console.log(section);
     qAll('section').forEach(function(e){ e.style.display = 'none' });
     section.style.display = 'block';
     loadPageImages(section);
@@ -53,3 +52,28 @@ function hashHandler() {
 }
 window.addEventListener('hashchange', hashHandler);
 document.addEventListener('DOMContentLoaded', hashHandler);
+
+
+/**
+ * Generate and Open Method Card Pop-Up
+ * @param {String} title 
+ * @param {HTMLElement} buttonElem
+ */
+function openMethod(title, buttonElem) {
+    const area = qId('method-popup');
+    const description = buttonElem.getAttribute('data-description');
+    area.innerHTML = `
+        <div class="method-card">
+            <button 
+                class="method-close-button"
+                onclick="closeMethod()"
+            >&#215</button>
+            <h2>${title}</h2>
+            <p>${description}</p>
+        </div>
+    `;
+    area.style.display = 'flex';
+}
+function closeMethod() {
+    qId('method-popup').style.display = 'none';
+}

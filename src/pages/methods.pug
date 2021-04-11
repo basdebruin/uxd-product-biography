@@ -1,7 +1,7 @@
 h1 Developing my own methods
 p.
     There are a lot of methods in the UX field, so many that you can never use all of them on a single project. <br>
-    For this learning goal I've set out to gather the methods that I think will be most useful to the type of project I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.
+    For this learning goal I've set out to gather the methods that I think will be most useful to the type of projects I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.
 p.
     Click on any of the methods to read a description about it.
 
@@ -68,9 +68,9 @@ each val, key in methods
     h2= sectionNames[key]
 
     each method in val
-        button(onclick="openMethod(this)").method
+        button(onclick=`openMethod("${method.title}", this)` data-description=method.description).method
             h3= method.title
             each point in method.points
                 .method-point= point
-            
-            p.method-description= method.description
+
+#method-popup
