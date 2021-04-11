@@ -27,7 +27,7 @@ p.
                 `
             },
             {
-                title: "Persona's",
+                title: "Persona",
                 points: [
                     "Gives you another perspective through which to look at your product",
                     "Allows a team to easily talk about the target audience"
@@ -68,7 +68,7 @@ each val, key in methods
     h2= sectionNames[key]
 
     each method in val
-        button(onclick=`openMethod("${method.title}", this)` data-description=method.description).method
+        button(onclick=`openMethod('${method.title}', this)` data-description=method.description).method
             h3= method.title
             each point in method.points
                 .method-point= point
