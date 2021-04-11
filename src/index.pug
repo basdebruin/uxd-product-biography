@@ -16,7 +16,7 @@ html(lang="en")
                 h2: a(href="#home") Home
 
                 h2.label Learning Goals
-                h2: a(href="#edges-of-ux") Discovering the Edges of UX
+                h2: a(href="#writing") Writing about UX and old projects
                 h2: a(href="#methods") Developing my own methods
                 h2: a(href="#sustainability") Sustainability in the design proces
 
@@ -28,15 +28,11 @@ html(lang="en")
 
             h2 Intro
 
-        section#edges-of-UX
-            h1 Discovering the Edges of UX
+        section#writing
+            include pages/writing.pug
 
         section#methods
-            h1 Developing my own methods
+            include pages/methods.pug
 
         section#sustainability
-            h1 Sustainability in the design proces
-            h2 Intro
-            p.
-                I did this thing
-            h2 Building the website
+            include pages/sustainability.pug

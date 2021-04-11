@@ -38,6 +38,11 @@ h2 {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.5px;
+} 
+p {
+    line-height: 1.6rem;
+    opacity: .8;
+    letter-spacing: .2px;
 }
 
 button, a {
@@ -142,17 +147,40 @@ function q(s)      { return document.querySelector(s) }
 function qAll(s)   { return document.querySelectorAll(s) }
 function qId(s)    { return document.getElementById(s) }
 
-// make menu (in)visible
-function toggleMenu(cond = undefined) {
-    [q('#menu-button'), q('nav')].forEach(function(e){ e.classList.toggle('open', cond) });
+/**
+ * toggle menu visibility
+ * @param {boolean} [override] - Optional boolean, set visibility based on override
+ */
+function toggleMenu(override = undefined) {
+    [q('#menu-button'), q('nav')].forEach(function(e){ 
+        e.classList.toggle('open', override) 
+    });
 }
 
-// hide all sections and make section visible
+/** 
+* hide all sections and make section visible
+* @param {HTMLElement} section - Section to be made visible
+*/
 function makeSectionVisible(section) {
     if (typeof section == undefined || section == null) return;
     console.log(section);
     qAll('section').forEach(function(e){ e.style.display = 'none' });
     section.style.display = 'block';
+    loadPageImages(section);
+}
+
+/**
+ * Load images on page
+ * @param {HTMLElement} section - Section within which to load content
+ */
+function loadPageImages(section) {
+    const elems = section.querySelectorAll('*[data-src]');
+    if (elems.length === 0) return;
+
+    elems.forEach(function(e) {
+        e.setAttribute('src', e.getAttribute('data-src'));
+        e.removeAttribute('data-src');
+    });
 }
 
 // listen for page change
@@ -166,4 +194,6 @@ function hashHandler() {
     toggleMenu(false);
 }
 window.addEventListener('hashchange', hashHandler);
-document.addEventListener('DOMContentLoaded', hashHandler);</script><body><button onclick="toggleMenu()" id="menu-button"><span>&#9776;</span><span>&#215;</span></button><nav><div class="container"><h2><a href="#home">Home</a></h2><h2 class="label">Learning Goals</h2><h2><a href="#edges-of-ux">Discovering the Edges of UX</a></h2><h2><a href="#methods">Developing my own methods</a></h2><h2><a href="#sustainability">Sustainability in the design proces</a></h2></div></nav><section id="home"><h1>Product Biography</h1><h2>Bas de Bruin</h2><hr><h2>Intro</h2></section><section id="edges-of-UX"><h1>Discovering the Edges of UX</h1></section><section id="methods"><h1>Developing my own methods</h1></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>
+document.addEventListener('DOMContentLoaded', hashHandler);</script><body><button onclick="toggleMenu()" id="menu-button"><span>&#9776;</span><span>&#215;</span></button><nav><div class="container"><h2><a href="#home">Home</a></h2><h2 class="label">Learning Goals</h2><h2><a href="#writing">Writing about UX and old projects</a></h2><h2><a href="#methods">Developing my own methods</a></h2><h2><a href="#sustainability">Sustainability in the design proces</a></h2></div></nav><section id="home"><h1>Product Biography</h1><h2>Bas de Bruin</h2><hr><h2>Intro</h2></section><section id="writing"><h1>Writing about UX and old projects</h1><hr></section><section id="methods"><h1>Developing my own methods</h1><p>There are a lot of methods in the UX field, so many that you can never use all of them on a single project. <br>
+For this learning goal I've set out to gather the methods that I think will be most useful to the type of project I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.</p><p>Click on any of the methods to read a description about it.
+</p></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>

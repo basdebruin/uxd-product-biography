@@ -38,6 +38,11 @@ h2 {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.5px;
+} 
+p {
+    line-height: 1.6rem;
+    opacity: .8;
+    letter-spacing: .2px;
 }
 
 button, a {
