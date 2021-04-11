@@ -39,6 +39,10 @@ h2 {
     font-weight: bold;
     letter-spacing: 0.5px;
 } 
+h3 {
+    margin: 0;
+    margin-bottom: .5rem;
+}
 p {
     line-height: 1.6rem;
     opacity: .8;
@@ -54,11 +58,11 @@ button, a {
     text-decoration: none;
 }
 button:hover, a:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 button:active, a:active {
     color: unset;
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 #menu-button {
@@ -141,3 +145,25 @@ hr {
 button:hover, a:hover {
     animation: rainbow 4s infinite;
 }
+
+
+/* Methods */
+.method {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    background: rgba(127, 127, 127, .2);
+    border-radius: .5em;
+
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.method-point {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    margin: .5rem .5rem 0 0;
+    background: rgba(127, 127, 127, .2);
+    border-radius: 1rem;
+}
+.method-description { display: none }

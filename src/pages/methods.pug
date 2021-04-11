@@ -9,8 +9,38 @@ p.
 -
     const methods = {
         research: [
-            "User Journey": {
-                
+            {
+                title: "User Journey",
+                points: [
+                    "Gives you an overview of the entire user experience."
+                ],
+                description: `
+                    A user journey discribes the experience the user has with your product. <br>
+                    Common sections that can be found in user journeys are: <br>
+                    <ul>
+                        <li>Screenflow</li>
+                        <li>Activities</li>
+                        <li>User Actions</li>
+                        <li>User Thoughts</li>
+                        <li>Oppertunities</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Persona's",
+                points: [
+                    "Gives you another perspective through which to look at your product",
+                    "Allows a team to easily talk about the target audience"
+                ],
+                description: ""
+            },
+            {
+                title: "Moodboad / Personality Profile",
+                points: [
+                    "Capture the personality of the product",
+                    "Includes visual style and copy"
+                ],
+                description: ""
             }
         ],
         designing: [
@@ -23,3 +53,24 @@ p.
 
         ]
     }
+    // header names
+    const sectionNames = {
+        research: "Research Phase",
+        designing: "Design Phase",
+        prototyping: "Prototyping Phase",
+        iterating: "Iteration & Testing Phase"
+    }
+
+
+hr
+
+each val, key in methods
+    h2= sectionNames[key]
+
+    each method in val
+        button(onclick="openMethod(this)").method
+            h3= method.title
+            each point in method.points
+                .method-point= point
+            
+            p.method-description= method.description

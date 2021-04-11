@@ -39,6 +39,10 @@ h2 {
     font-weight: bold;
     letter-spacing: 0.5px;
 } 
+h3 {
+    margin: 0;
+    margin-bottom: .5rem;
+}
 p {
     line-height: 1.6rem;
     opacity: .8;
@@ -54,11 +58,11 @@ button, a {
     text-decoration: none;
 }
 button:hover, a:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 button:active, a:active {
     color: unset;
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 
 #menu-button {
@@ -140,7 +144,29 @@ hr {
 }
 button:hover, a:hover {
     animation: rainbow 4s infinite;
-}</style><script>// scripts for uxd-product-biography
+}
+
+
+/* Methods */
+.method {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    background: rgba(127, 127, 127, .2);
+    border-radius: .5em;
+
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.method-point {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    margin: .5rem .5rem 0 0;
+    background: rgba(127, 127, 127, .2);
+    border-radius: 1rem;
+}
+.method-description { display: none }</style><script>// scripts for uxd-product-biography
 
 // basic query functions
 function q(s)      { return document.querySelector(s) }
@@ -196,4 +222,14 @@ function hashHandler() {
 window.addEventListener('hashchange', hashHandler);
 document.addEventListener('DOMContentLoaded', hashHandler);</script><body><button onclick="toggleMenu()" id="menu-button"><span>&#9776;</span><span>&#215;</span></button><nav><div class="container"><h2><a href="#home">Home</a></h2><h2 class="label">Learning Goals</h2><h2><a href="#writing">Writing about UX and old projects</a></h2><h2><a href="#methods">Developing my own methods</a></h2><h2><a href="#sustainability">Sustainability in the design proces</a></h2></div></nav><section id="home"><h1>Product Biography</h1><h2>Bas de Bruin</h2><hr><h2>Intro</h2></section><section id="writing"><h1>Writing about UX and old projects</h1><hr></section><section id="methods"><h1>Developing my own methods</h1><p>There are a lot of methods in the UX field, so many that you can never use all of them on a single project. <br>
 For this learning goal I've set out to gather the methods that I think will be most useful to the type of project I do, and plan on doing in the future; these projects will be mostly interactive, audio-visual experiences in physical or digital form.</p><p>Click on any of the methods to read a description about it.
-</p></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>
+</p><hr><h2>Research Phase</h2><button class="method" onclick="openMethod(this)"><h3>User Journey</h3><div class="method-point">Gives you an overview of the entire user experience.</div><p class="method-description">
+                A user journey discribes the experience the user has with your product. &lt;br&gt;
+                Common sections that can be found in user journeys are: &lt;br&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Screenflow&lt;/li&gt;
+                    &lt;li&gt;Activities&lt;/li&gt;
+                    &lt;li&gt;User Actions&lt;/li&gt;
+                    &lt;li&gt;User Thoughts&lt;/li&gt;
+                    &lt;li&gt;Oppertunities&lt;/li&gt;
+                &lt;/ul&gt;
+            </p></button><button class="method" onclick="openMethod(this)"><h3>Persona's</h3><div class="method-point">Gives you another perspective through which to look at your product</div><div class="method-point">Allows a team to easily talk about the target audience</div><p class="method-description"></p></button><button class="method" onclick="openMethod(this)"><h3>Moodboad / Personality Profile</h3><div class="method-point">Capture the personality of the product</div><div class="method-point">Includes visual style and copy</div><p class="method-description"></p></button><h2>Design Phase</h2><h2>Prototyping Phase</h2><h2>Iteration &amp; Testing Phase</h2></section><section id="sustainability"><h1>Sustainability in the design proces</h1><h2>Intro</h2><p>I did this thing</p><h2>Building the website</h2></section></body></html>
