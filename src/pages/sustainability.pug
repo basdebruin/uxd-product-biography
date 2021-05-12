@@ -1,5 +1,52 @@
 h1 Sustainability in the design proces
-h2 Intro
+h2 Why?
 p.
-    I did this thing
-h2 Building the website
+    The internet and the servers and infrastructure that goes along with it uses a lot of electricity, approximately 3.8% of the world's emissions are caused by the internet alone. Sustainability isn't only related to climate and emissions but also in the longevity and ethics of our designs. We can get carried away with trends and flashy animations but it may be a good idea to take a step back and reduce our systems to the essentials; creating an experience that achieves exactly what the user needs and nothing more.
+
+h2 How to design Sustainably
+h3 Be mindful of large pieces of content
+p Images and video's can count for most of the size of a website or app, where a piece of text or a vector icon can be negligibly small in comparison.
+
+p When designing a homepage ask yourself: do you really need that large hero image, just because everyone else does it? Changing it out for a vector illustration can cut down the size by a factor of 100. This doesn't just make the website smaller in size, it also significantly decreases load times, making the whole website feel more snappy.
+
+p When adding video content to a website consider loading the video only once the user has clicked on a button, instead of autoplaying it when the page opens. This makes sure that content is only loaded when it is necessary and it gives user the opportunity to skip distracting, moving content.
+
+p Another piece of content that we don't often think of and that can be surprisingly large are the fonts we use in the website. Fonts are essentially collections of vector images that need to be loaded in every time the user visits a new webpage. When designing a style guide or visually designing the pages, consider the amount of fonts you're using and whether it's possible to use a standard system font instead.
+
+h3 Make sure everything is easy to reach
+p The more pages the user has to traverse before getting to the content they came for, the more needless items are loaded from the server to the user's device. Make sure that key items are easy to reach through a menu; make sure this menu is always available, so the user doesn't have to backtrack to a previous page and maybe even personalise the interface to only show the user the content that is relevant to them.
+
+hr
+
+h2 Building this website
+p When developing code for the web you can write the html yourself but it's more common to use a site generator that takes in multiple components or files and combines them into a single, optimised package.
+p These software packages do however have to be downloaded from the internet and are required to rebuild the website whenever a change is made.
+p To keep the building proces as simple as possible while still allowing me to write clear, structured code, I used PugJS, this is a tool that makes writing HTML a bit easier and allows you to combine and optimise your code into a single HTML file.
+p I am using NPM as a dependency manager and as a simple way of building the site with a single command.
+p Once the Pug build proces is finished I am left with a small HTML file containing all content, styles and logic.
+
+h3 Hosting
+p When considering hosting providers the key things to keep in mind are:
+ol
+    li.
+        How much processing is done on the server? <br>
+        If the server has to run code every time someone goes to your website or every time 
+    li.
+        How many services are you using? <br>
+        Minimising the amount of services and therefore server that have to talk to each other reduces server time.
+    li.
+        What efforts are taken by the hosting provider regarding energy efficiency and where does the power that powers the datacenters use come from?
+
+h3 What I used for hosting
+p My product biography website is a very simple, stripped-down webpage that doesn't need a lot of processing on the part of the server.
+
+p As is good practice for most coding projects, I use GitHub for storing my code and version control.
+
+p I initially used Netlify for my hosting and building, Netlify is a very easy-to-use service that automatically downloads you code from GitHub, builds it into a static website and hosts it on their free platform. This service is great for simplicity but there we still two services that needed to talk to each other.
+
+p Luckily GitHub has a built-in hosting feature that is also free to use so I switched to that, this way the code storage and hosting are done by the same provider. Another benefit of just using GitHub is that instead of building the website on Netlify's servers I am building it on my own computer, which is something I have to do anyway during the development proces.
+
+h3 Pages &amp; content
+p All website content such as pages, styles and logic are compiled into a single file, this significantly reduces requests beween the server and the user but it does mean that it sometimes loads in more content than it needs. 
+
+p To combat this I only load big elements like images when the user opens a specific page.
