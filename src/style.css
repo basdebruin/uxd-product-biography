@@ -148,7 +148,24 @@ hr {
 @media (min-width: 50rem) {
     .columns {
         display: flex;
+        margin-top: 2rem;
+        gap: 2rem;
         flex-flow: row nowrap;
+    }
+    .columns > * {
+        width: 100%;
+    }
+    .columns * {
+        margin-top: 0;
+    }
+}
+
+.allow-scroll {
+    overflow-x: scroll;
+}
+@media (min-width: 60rem) {
+    .allow-scroll {
+        margin: 0 calc(-52vw + 30rem);
     }
 }
 
