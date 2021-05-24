@@ -14,6 +14,9 @@ html(lang="en")
         nav
             .container
                 h2: a(href="#home") Home
+                h2: a(href="#likes-dislikes") Likes &amp; Dislikes
+                h2: a(href="#companies") Company Evaluations
+                h2: a(href="#usp") Unique Selling Points
 
                 h2.label Learning Goals
                 h2: a(href="#writing") Writing about UX and old projects
@@ -27,6 +30,18 @@ html(lang="en")
             hr
 
             h2 Intro
+
+        section#likes-dislikes
+            include pages/likes-dislikes.pug
+        
+        section#companies
+            include pages/companies.pug
+
+        section#usp
+            include pages/usp.pug
+
+
+
 
         section#writing
             include pages/writing.pug
