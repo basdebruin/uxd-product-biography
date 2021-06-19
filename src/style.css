@@ -76,6 +76,9 @@ button:active, a:active {
     color: unset;
     transform: scale(0.95);
 }
+p > a {
+    text-decoration: underline;
+}
 
 #menu-button {
     display: block;
