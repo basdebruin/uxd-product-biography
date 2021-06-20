@@ -4,7 +4,7 @@ html(lang="en")
     style 
         include style.css
     script
-        include script.js
+        include script.min.js
 
     body
         button(onclick="toggleMenu()")#menu-button
@@ -24,12 +24,7 @@ html(lang="en")
                 h2: a(href="#sustainability") Sustainability in the design process
 
         section#home
-            h1 Product Biography
-            h2 Bas de Bruin
-
-            hr
-
-            h2 Intro
+            include pages/home.pug
 
         section#likes-dislikes
             include pages/likes-dislikes.pug
